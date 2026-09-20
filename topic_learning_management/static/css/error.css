@@ -1,0 +1,358 @@
+:root {
+
+
+    --background:
+    #F8FAFC;
+
+
+    --surface:
+    #FFFFFF;
+
+
+    --header:
+    #0F172A;
+
+
+    --primary:
+    #4F46E5;
+
+
+    --primary-hover:
+    #4338CA;
+
+
+    --text:
+    #1E293B;
+
+
+    --secondary-text:
+    #64748B;
+
+
+    --border:
+    #E2E8F0;
+
+
+}
+
+
+
+
+
+body {
+
+
+    margin:
+    0;
+
+
+    min-height:
+    100vh;
+
+
+    background:
+    var(--background);
+
+
+    font-family:
+    "Inter",
+    Arial,
+    sans-serif;
+
+
+}
+
+
+
+
+
+.error-page {
+
+
+    min-height:
+    100vh;
+
+
+    display:
+    flex;
+
+
+    justify-content:
+    center;
+
+
+    align-items:
+    center;
+
+
+    padding:
+    20px;
+
+
+}
+
+
+
+
+
+.error-card {
+
+
+    width:
+    450px;
+
+
+    text-align:
+    center;
+
+
+    background:
+    var(--surface);
+
+
+    border:
+    1px solid var(--border);
+
+
+    border-radius:
+    12px;
+
+
+    padding:
+    45px;
+
+
+}
+
+
+
+
+
+.error-icon {
+
+
+    width:
+    70px;
+
+
+    height:
+    70px;
+
+
+    margin:
+    auto;
+
+
+    display:
+    flex;
+
+
+    align-items:
+    center;
+
+
+    justify-content:
+    center;
+
+
+    border-radius:
+    14px;
+
+
+    background:
+    #EEF2FF;
+
+
+    color:
+    var(--primary);
+
+
+    font-size:
+    35px;
+
+
+}
+
+
+
+
+
+.error-card h1 {
+
+
+    margin-top:
+    25px;
+
+
+    font-size:
+    72px;
+
+
+    font-weight:
+    800;
+
+
+    color:
+    var(--header);
+
+
+}
+
+
+
+
+
+.error-card h2 {
+
+
+    color:
+    var(--text);
+
+
+    font-size:
+    24px;
+
+
+    font-weight:
+    600;
+
+
+}
+
+
+
+
+
+.error-card p {
+
+
+    color:
+    var(--secondary-text);
+
+
+    margin:
+    20px 0 30px;
+
+
+}
+
+
+
+
+
+.error-actions {
+
+
+    display:
+    flex;
+
+
+    justify-content:
+    center;
+
+
+    gap:
+    12px;
+
+
+}
+
+
+
+
+
+.primary-button {
+
+
+    background:
+    var(--primary);
+
+
+    color:
+    white;
+
+
+    border:
+    none;
+
+
+}
+
+
+
+
+
+.primary-button:hover {
+
+
+    background:
+    var(--primary-hover);
+
+
+    color:
+    white;
+
+
+}
+
+
+
+
+
+.secondary-button {
+
+
+    background:
+    white;
+
+
+    border:
+    1px solid #CBD5E1;
+
+
+    color:
+    #334155;
+
+
+}
+
+
+
+
+
+.secondary-button:hover {
+
+
+    background:
+    #F1F5F9;
+
+
+}
+
+
+
+
+
+@media(max-width:500px){
+
+
+    .error-card{
+
+        width:
+        100%;
+
+        padding:
+        30px;
+
+    }
+
+
+    .error-actions{
+
+        flex-direction:
+        column;
+
+    }
+
+
+}

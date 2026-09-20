@@ -18,6 +18,11 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from django.conf import settings
+from django.conf.urls import handler404
+
+
+handler404 = "apps.project_app.views.custom_404"
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,6 +30,5 @@ urlpatterns = [
         "login/",
         auth_views.LoginView.as_view(template_name="authentication/login.html"),
         name="login",
-    ),
-    path('', include('apps.index.urls'), name='index')
+    )
 ]
