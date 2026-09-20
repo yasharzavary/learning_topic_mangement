@@ -5,6 +5,9 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 
 # categories
 class Category(models.Model):
+    class Meta:
+        db_table = "categories"
+
     id = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
@@ -21,11 +24,10 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-
 # topic details
-
 class Topic(models.Model):
-
+    class Meta:
+        db_table = "topics"
     class Status(models.TextChoices):
         IDEA = "IDEA", "Idea"
         SOURCE_RESEARCH = "SOURCE_RESEARCH", "Source Research"
@@ -96,11 +98,10 @@ class Topic(models.Model):
     def __str__(self):
         return self.title
 
-
-
 # topic timeline control
-
 class TopicTimeline(models.Model):
+    class Meta:
+        db_table = "topic_timelines"
 
     id = models.UUIDField(
         primary_key=True,
@@ -163,12 +164,10 @@ class TopicTimeline(models.Model):
     def __str__(self):
         return f"Timeline - {self.topic.title}"
 
-
-
 # topic source
-
 class TopicSource(models.Model):
-
+    class Meta:
+        db_table = "topic_sources"
     class SourceType(models.TextChoices):
         BOOK = "BOOK", "Book"
         PAPER = "PAPER", "Paper"
@@ -260,12 +259,10 @@ class TopicSource(models.Model):
     def __str__(self):
         return self.title
 
-
-
 # topic experience
-
 class TopicExperience(models.Model):
-
+    class Meta:
+        db_table = "topic_experiences"
     id = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
@@ -337,11 +334,10 @@ class TopicExperience(models.Model):
     def __str__(self):
         return f"Experience - {self.topic.title}"
 
-
 # topic releation
-
 class TopicRelation(models.Model):
-
+    class Meta:
+        db_table = "topic_relations"
     class RelationType(models.TextChoices):
         RELATED = "RELATED", "Related"
         PREREQUISITE = "PREREQUISITE", "Prerequisite"
