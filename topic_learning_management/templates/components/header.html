@@ -1,0 +1,157 @@
+<header class="main-header">
+
+
+<div class="container-fluid header-container">
+
+
+    <!-- Logo -->
+
+    <div class="brand-section">
+
+
+        <a href="/" class="brand-link">
+
+
+            <span class="brand-icon">
+                <i class="bi bi-journal-code"></i>
+            </span>
+
+
+            <span class="brand-name">
+
+                {{ site_name|default:"Personal Learning System" }}
+
+            </span>
+
+
+        </a>
+
+
+    </div>
+
+
+
+    <!-- Search -->
+
+
+    <div class="header-search">
+
+
+        <form method="GET" action="#">
+
+            <div class="search-box">
+
+
+                <i class="bi bi-search"></i>
+
+
+                <input 
+                    type="text"
+                    name="q"
+                    placeholder="Search topics..."
+                >
+
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+
+
+
+    <!-- Actions -->
+
+
+    <div class="header-actions">
+
+
+        <a href="#" class="btn btn-primary new-topic-btn">
+
+            <i class="bi bi-plus-lg"></i>
+
+            New Topic
+
+        </a>
+
+
+
+
+        {% if user.is_authenticated %}
+
+
+        <div class="dropdown">
+
+
+            <button 
+            class="profile-button dropdown-toggle"
+            data-bs-toggle="dropdown">
+
+
+                <i class="bi bi-person-circle"></i>
+
+                {{ user.username }}
+
+
+            </button>
+
+
+            <ul class="dropdown-menu dropdown-menu-end">
+
+
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Profile
+                    </a>
+                </li>
+
+
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Settings
+                    </a>
+                </li>
+
+
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+
+
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Logout
+                    </a>
+                </li>
+
+
+            </ul>
+
+
+        </div>
+
+
+        {% else %}
+
+
+        <a href="#" class="profile-button">
+
+            <i class="bi bi-person-circle"></i>
+
+        </a>
+
+
+        {% endif %}
+
+
+
+    </div>
+
+
+</div>
+
+
+</header>

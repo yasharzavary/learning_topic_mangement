@@ -1,0 +1,406 @@
+/* =========================
+   Global Variables
+========================= */
+
+
+:root {
+
+
+    --background:
+    #F8FAFC;
+
+
+    --surface:
+    #FFFFFF;
+
+
+    --header:
+    #0F172A;
+
+
+    --sidebar:
+    #111827;
+
+
+    --primary:
+    #4F46E5;
+
+
+    --primary-hover:
+    #4338CA;
+
+
+    --secondary:
+    #0D9488;
+
+
+    --text:
+    #1E293B;
+
+
+    --heading:
+    #0F172A;
+
+
+    --secondary-text:
+    #64748B;
+
+
+    --muted:
+    #94A3B8;
+
+
+    --border:
+    #E2E8F0;
+
+
+}
+
+
+
+
+
+body {
+
+
+    background:
+    var(--background);
+
+
+    color:
+    var(--text);
+
+
+    font-family:
+    "Inter",
+    Arial,
+    sans-serif;
+
+
+}
+
+
+
+
+
+/* =========================
+ Header
+========================= */
+
+
+.main-header {
+
+
+    height:
+    64px;
+
+
+    background:
+    var(--header);
+
+
+    color:
+    white;
+
+
+}
+
+
+
+
+
+.header-container {
+
+
+    height:
+    100%;
+
+
+    display:
+    flex;
+
+
+    align-items:
+    center;
+
+
+    justify-content:
+    space-between;
+
+
+}
+
+
+
+
+
+.brand-link {
+
+
+    text-decoration:
+    none;
+
+
+    color:
+    white;
+
+
+    display:
+    flex;
+
+
+    align-items:
+    center;
+
+
+    gap:
+    10px;
+
+
+}
+
+
+
+
+
+.brand-icon {
+
+
+    font-size:
+    24px;
+
+
+    color:
+    #818CF8;
+
+
+}
+
+
+
+
+
+.brand-name {
+
+
+    font-size:
+    18px;
+
+
+    font-weight:
+    600;
+
+
+}
+
+
+
+
+
+.header-search {
+
+
+    width:
+    40%;
+
+
+}
+
+
+
+
+
+.search-box {
+
+
+    background:
+    rgba(255,255,255,0.1);
+
+
+    border-radius:
+    8px;
+
+
+    padding:
+    8px 14px;
+
+
+    display:
+    flex;
+
+
+    align-items:
+    center;
+
+
+    gap:
+    10px;
+
+
+}
+
+
+
+
+
+.search-box input {
+
+
+    background:
+    transparent;
+
+
+    border:
+    none;
+
+
+    outline:
+    none;
+
+
+    color:
+    white;
+
+
+    width:
+    100%;
+
+
+}
+
+
+
+
+
+.search-box input::placeholder {
+
+
+    color:
+    var(--muted);
+
+
+}
+
+
+
+
+
+.new-topic-btn {
+
+
+    background:
+    var(--primary);
+
+
+    border:
+    none;
+
+
+}
+
+
+
+
+
+.new-topic-btn:hover {
+
+
+    background:
+    var(--primary-hover);
+
+
+}
+
+
+
+
+
+.profile-button {
+
+
+    background:
+    transparent;
+
+
+    border:
+    none;
+
+
+    color:
+    white;
+
+
+}
+
+
+
+
+
+.header-actions {
+
+
+    display:
+    flex;
+
+
+    align-items:
+    center;
+
+
+    gap:
+    15px;
+
+
+}
+
+
+
+
+
+
+/* =========================
+ Footer
+========================= */
+
+
+.main-footer {
+
+
+    background:
+    var(--header);
+
+
+    color:
+    #E2E8F0;
+
+
+    padding:
+    18px 0;
+
+
+}
+
+
+
+
+
+.footer-content {
+
+
+    display:
+    flex;
+
+
+    justify-content:
+    space-between;
+
+
+    color:
+    #94A3B8;
+
+
+    font-size:
+    14px;
+
+
+}
