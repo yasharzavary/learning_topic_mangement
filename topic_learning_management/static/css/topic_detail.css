@@ -315,3 +315,208 @@
     white;
 
 }
+
+
+.phase-section {
+
+
+    background:
+    #FFFFFF;
+
+
+    border:
+    1px solid #E2E8F0;
+
+
+    border-radius:
+    12px;
+
+
+    padding:
+    25px;
+
+
+    margin-top:
+    25px;
+
+
+}
+
+
+
+
+
+.phase-header h2 {
+
+
+    color:
+    #0F172A;
+
+
+}
+
+
+
+
+
+.phase-header p {
+
+
+    color:
+    #64748B;
+
+
+}
+
+
+
+
+
+.source-form-card,
+.source-list-card {
+
+
+    margin-top:
+    25px;
+
+
+    padding:
+    20px;
+
+
+    border:
+    1px solid #E2E8F0;
+
+
+    border-radius:
+    10px;
+
+
+}
+
+
+
+
+
+.phase-section label {
+
+
+    font-weight:
+    600;
+
+
+    color:
+    #1E293B;
+
+
+    margin-bottom:
+    6px;
+
+
+    display:block;
+
+
+}
+
+.status-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+
+.status-active {
+
+    background: #DBEAFE;
+
+    color: #2563EB;
+
+}
+
+
+.status-completed {
+
+    background: #DCFCE7;
+
+    color: #16A34A;
+
+}
+
+
+.phase-dates {
+
+    display: flex;
+
+    gap: 50px;
+
+}
+
+
+.phase-dates div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+}
+
+
+.phase-dates span {
+
+    font-size: 13px;
+
+    color: #64748B;
+
+}
+
+
+.phase-dates strong {
+
+    color: #1E293B;
+
+    font-size: 14px;
+
+}
+
+.readonly-card {
+
+    background:
+    #F8FAFC;
+
+}
+
+
+.readonly-card h3 {
+
+    color:
+    #0F172A;
+
+    margin-bottom:
+    10px;
+
+}
+
+
+.readonly-card p {
+
+    color:
+    #334155;
+
+    line-height:
+    1.8;
+
+}
