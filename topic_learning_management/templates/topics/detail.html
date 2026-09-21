@@ -1,0 +1,700 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+
+{% block title %}
+
+{{ topic.title }}
+
+{% endblock %}
+
+
+
+
+
+{% block extra_css %}
+
+<link rel="stylesheet"
+href="{% static 'css/topic_detail.css' %}">
+
+{% endblock %}
+
+
+
+
+
+{% block content %}
+
+
+
+<div class="topic-detail-page">
+
+
+
+    <!-- Topic Header -->
+
+    <div class="topic-header">
+
+
+        <div>
+
+
+            <h1>
+
+                {{ topic.title }}
+
+            </h1>
+
+
+            <p>
+
+                {{ topic.description }}
+
+            </p>
+
+
+        </div>
+
+
+
+
+
+        <!-- Delete Topic -->
+
+
+        <form method="POST"
+        action="{% url 'delete_topic' topic.id %}"
+        onsubmit="return confirmDelete();">
+
+
+            {% csrf_token %}
+
+
+            <button
+            type="submit"
+            class="btn delete-button">
+
+
+                <i class="bi bi-trash"></i>
+
+
+                Delete Topic
+
+
+            </button>
+
+
+        </form>
+
+
+
+    </div>
+
+
+
+
+
+
+    <!-- Topic Information -->
+
+
+    <div class="info-card">
+
+
+
+        <div class="info-item">
+
+
+            <span>
+
+                Category
+
+            </span>
+
+
+            <strong>
+
+                {{ topic.category.name }}
+
+            </strong>
+
+
+        </div>
+
+
+
+
+
+        <div class="info-item">
+
+
+            <span>
+
+                Priority
+
+            </span>
+
+
+            <strong>
+
+                {{ topic.priority|title }}
+
+            </strong>
+
+
+        </div>
+
+
+
+
+
+        <div class="info-item">
+
+
+            <span>
+
+                Status
+
+            </span>
+
+
+            <strong>
+
+                {{ topic.status|title|cut:"_" }}
+
+            </strong>
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+    <!-- Learning Timeline -->
+
+
+    <div class="timeline-card">
+
+
+        <h2>
+
+            Learning Journey
+
+        </h2>
+
+
+
+
+        <div class="timeline">
+
+
+
+            <div class="phase completed">
+
+
+                <span>
+
+                    ✓
+
+                </span>
+
+
+                <p>
+
+                    Idea
+
+                </p>
+
+
+            </div>
+
+
+
+
+
+
+            <div class="phase 
+            {% if topic.status == 'SOURCE_RESEARCH' or topic.status == 'LEARNING' or topic.status == 'EXPERIENCE' or topic.status == 'COMPLETED' %}
+
+            completed
+
+            {% endif %}">
+
+
+                <span>
+
+                    2
+
+                </span>
+
+
+                <p>
+
+                    Source Research
+
+                </p>
+
+
+            </div>
+
+
+
+
+
+
+
+            <div class="phase 
+            {% if topic.status == 'LEARNING' or topic.status == 'EXPERIENCE' or topic.status == 'COMPLETED' %}
+
+            completed
+
+            {% endif %}">
+
+
+                <span>
+
+                    3
+
+                </span>
+
+
+                <p>
+
+                    Learning
+
+                </p>
+
+
+            </div>
+
+
+
+
+
+
+
+
+            <div class="phase 
+            {% if topic.status == 'EXPERIENCE' or topic.status == 'COMPLETED' %}
+
+            completed
+
+            {% endif %}">
+
+
+                <span>
+
+                    4
+
+                </span>
+
+
+                <p>
+
+                    Experience
+
+                </p>
+
+
+            </div>
+
+
+
+
+
+
+
+
+            <div class="phase 
+            {% if topic.status == 'COMPLETED' %}
+
+            completed
+
+            {% endif %}">
+
+
+                <span>
+
+                    5
+
+                </span>
+
+
+                <p>
+
+                    Completed
+
+                </p>
+
+
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- Phase Controller -->
+
+
+    <div class="action-card">
+
+
+        <h2>
+
+            Current Phase Action
+
+        </h2>
+
+
+
+
+
+        <!-- IDEA -->
+
+
+        {% if topic.status == "IDEA" %}
+
+
+
+            <form method="POST"
+            action="{% url 'start_research' topic.id %}">
+
+
+                {% csrf_token %}
+
+
+                <button
+                type="submit"
+                class="btn primary-button">
+
+
+                    <i class="bi bi-search"></i>
+
+
+                    Start Source Research
+
+
+                </button>
+
+
+            </form>
+
+
+
+
+
+        <!-- SOURCE RESEARCH -->
+
+
+        {% elif topic.status == "SOURCE_RESEARCH" %}
+
+
+
+
+            {% if timeline.source_research_finish %}
+
+
+
+                <form method="POST"
+                action="{% url 'start_learning' topic.id %}">
+
+
+                    {% csrf_token %}
+
+
+                    <button
+                    type="submit"
+                    class="btn primary-button">
+
+
+                        <i class="bi bi-play"></i>
+
+
+                        Start Learning
+
+
+                    </button>
+
+
+                </form>
+
+
+
+
+
+            {% else %}
+
+
+
+                <form method="POST"
+                action="{% url 'finish_research' topic.id %}">
+
+
+                    {% csrf_token %}
+
+
+                    <button
+                    type="submit"
+                    class="btn primary-button">
+
+
+                        <i class="bi bi-check"></i>
+
+
+                        Finish Source Research
+
+
+                    </button>
+
+
+                </form>
+
+
+
+
+            {% endif %}
+
+
+
+
+
+
+
+
+
+        <!-- LEARNING -->
+
+
+        {% elif topic.status == "LEARNING" %}
+
+
+
+
+
+            {% if timeline.learning_finish %}
+
+
+
+                <form method="POST"
+                action="{% url 'start_experience' topic.id %}">
+
+
+                    {% csrf_token %}
+
+
+                    <button
+                    type="submit"
+                    class="btn primary-button">
+
+
+                        <i class="bi bi-play"></i>
+
+
+                        Start Experience Evaluation
+
+
+                    </button>
+
+
+                </form>
+
+
+
+
+            {% else %}
+
+
+
+
+                <form method="POST"
+                action="{% url 'finish_learning' topic.id %}">
+
+
+                    {% csrf_token %}
+
+
+                    <button
+                    type="submit"
+                    class="btn primary-button">
+
+
+                        <i class="bi bi-check"></i>
+
+
+                        Finish Learning
+
+
+                    </button>
+
+
+                </form>
+
+
+
+
+            {% endif %}
+
+
+
+
+
+
+
+
+
+
+        <!-- EXPERIENCE -->
+
+
+        {% elif topic.status == "EXPERIENCE" %}
+
+
+
+
+
+            {% if timeline.experience_finish %}
+
+
+
+
+                <form method="POST"
+                action="{% url 'complete_topic' topic.id %}">
+
+
+                    {% csrf_token %}
+
+
+                    <button
+                    type="submit"
+                    class="btn success-button">
+
+
+                        <i class="bi bi-check-circle"></i>
+
+
+                        Complete Topic
+
+
+                    </button>
+
+
+                </form>
+
+
+
+
+
+            {% else %}
+
+
+
+
+                <form method="POST"
+                action="{% url 'finish_experience' topic.id %}">
+
+
+                    {% csrf_token %}
+
+
+                    <button
+                    type="submit"
+                    class="btn primary-button">
+
+
+                        <i class="bi bi-check"></i>
+
+
+                        Finish Experience Evaluation
+
+
+                    </button>
+
+
+                </form>
+
+
+
+
+
+            {% endif %}
+
+
+
+
+
+
+
+
+
+        <!-- COMPLETED -->
+
+
+        {% elif topic.status == "COMPLETED" %}
+
+
+
+
+            <div class="completed-message">
+
+
+                <i class="bi bi-check-circle"></i>
+
+
+                This learning journey has been completed.
+
+
+            </div>
+
+
+
+
+        {% endif %}
+
+
+
+
+    </div>
+
+
+
+
+
+
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+
+
+{% block extra_js %}
+
+<script src="{% static 'js/topic_detail.js' %}"></script>
+
+{% endblock %}

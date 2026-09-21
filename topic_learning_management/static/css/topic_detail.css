@@ -1,0 +1,317 @@
+.topic-detail-page {
+
+
+    padding:
+    25px;
+
+
+}
+
+
+
+
+.topic-header {
+
+
+    display:flex;
+
+
+    justify-content:
+    space-between;
+
+
+    margin-bottom:
+    25px;
+
+
+}
+
+
+
+
+
+.topic-header h1 {
+
+
+    color:
+    #0F172A;
+
+
+}
+
+
+
+
+
+.topic-header p {
+
+
+    color:
+    #64748B;
+
+
+}
+
+
+
+
+
+.info-card,
+.timeline-card,
+.action-card {
+
+
+    background:
+    white;
+
+
+    border:
+    1px solid #E2E8F0;
+
+
+    border-radius:
+    12px;
+
+
+    padding:
+    25px;
+
+
+    margin-bottom:
+    25px;
+
+
+}
+
+
+
+
+
+.info-card {
+
+
+    display:
+    flex;
+
+
+    gap:
+    50px;
+
+
+}
+
+
+
+
+
+.info-item span {
+
+
+    display:block;
+
+
+    color:
+    #64748B;
+
+
+}
+
+
+
+
+
+.info-item strong {
+
+
+    color:
+    #1E293B;
+
+
+}
+
+
+
+
+
+.timeline {
+
+
+    display:
+    flex;
+
+
+    justify-content:
+    space-between;
+
+
+    margin-top:
+    30px;
+
+
+}
+
+
+
+
+
+.phase {
+
+
+    text-align:center;
+
+
+    color:
+    #94A3B8;
+
+
+}
+
+
+
+
+
+.phase span {
+
+
+    width:
+    40px;
+
+
+    height:
+    40px;
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:center;
+
+
+    border-radius:50%;
+
+
+    background:
+    #E2E8F0;
+
+
+}
+
+
+
+
+
+.phase.completed span {
+
+
+    background:
+    #0D9488;
+
+
+    color:white;
+
+
+}
+
+
+
+
+
+.primary-button {
+
+
+    background:
+    #4F46E5;
+
+
+    color:white;
+
+
+}
+
+
+
+
+
+.secondary-button {
+
+
+    border:
+    1px solid #CBD5E1;
+
+
+}
+
+
+
+
+
+.disabled {
+
+
+    opacity:
+    .5;
+
+
+    cursor:
+    not-allowed;
+
+
+}
+
+
+
+
+
+.delete-button {
+
+
+    background:
+    #DC2626;
+
+
+    color:white;
+
+
+}
+
+
+
+
+
+.completed-message {
+
+
+    color:
+    #16A34A;
+
+
+    font-weight:
+    600;
+
+
+}
+
+
+.success-button {
+
+    background:
+    #16A34A;
+
+    color:
+    white;
+
+}
+
+
+.success-button:hover {
+
+    background:
+    #15803D;
+
+    color:
+    white;
+
+}
