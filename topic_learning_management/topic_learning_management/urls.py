@@ -31,5 +31,10 @@ urlpatterns = [
         auth_views.LoginView.as_view(template_name="authentication/login.html"),
         name="login",
     ),
-    path('', include('apps.project_app.urls'))
+    path('', include('apps.project_app.urls')),
+    path(
+    "logout/",
+    auth_views.LogoutView.as_view(),
+    name="logout",
+    ),
 ]
