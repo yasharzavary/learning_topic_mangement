@@ -5,8 +5,11 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 
 # categories
 class Category(models.Model):
+
     class Meta:
         db_table = "categories"
+        verbose_name = "Category"
+        verbose_name_plural = "Categories"
 
     id = models.UUIDField(
         primary_key=True,
