@@ -377,4 +377,46 @@ class TopicRelation(models.Model):
 
     def __str__(self):
         return f"{self.topic} -> {self.related_topic}"
-    
+
+
+class TopicLearning(models.Model):
+
+    topic = models.OneToOneField(
+        Topic,
+        on_delete=models.CASCADE,
+        related_name="learning"
+    )
+
+
+    notes = models.TextField(
+        blank=True,
+        null=True
+    )
+
+
+    key_findings = models.TextField(
+        blank=True,
+        null=True
+    )
+
+
+    questions = models.TextField(
+        blank=True,
+        null=True
+    )
+
+
+    created_at = models.DateTimeField(
+        auto_now_add=True
+    )
+
+
+    updated_at = models.DateTimeField(
+        auto_now=True
+    )
+
+
+
+    def __str__(self):
+
+        return f"{self.topic.title} - Learning"
