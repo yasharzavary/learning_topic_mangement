@@ -776,39 +776,49 @@ def save_experience(request, topic_id):
 
 
 
+        # Save evaluation scores
+        # Empty fields will be stored as 0
+
+
         experience.difficulty_score = request.POST.get(
             "difficulty_score"
-        )
+        ) or 0
 
 
         experience.usefulness_score = request.POST.get(
             "usefulness_score"
-        )
+        ) or 0
 
 
         experience.interest_score = request.POST.get(
             "interest_score"
-        )
+        ) or 0
 
 
         experience.knowledge_before_score = request.POST.get(
             "knowledge_before_score"
-        )
+        ) or 0
 
 
         experience.knowledge_after_score = request.POST.get(
             "knowledge_after_score"
-        )
+        ) or 0
 
+
+
+        # Save text fields
 
         experience.best_learning_method = request.POST.get(
-            "best_learning_method"
-        )
+            "best_learning_method",
+            ""
+        ).strip()
 
 
         experience.final_summary = request.POST.get(
-            "final_summary"
-        )
+            "final_summary",
+            ""
+        ).strip()
+
 
 
         experience.save()
