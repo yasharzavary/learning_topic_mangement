@@ -120,6 +120,7 @@ USE_TZ = True
 
 # site details
 LOGIN_URL = "/login/"
+LOGIN_REDIRECT_URL = "project_app:index"
 
 
 # Static files (CSS, JavaScript, Images)
