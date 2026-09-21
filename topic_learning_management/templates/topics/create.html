@@ -380,39 +380,54 @@ href="{% static 'css/topic_create.css' %}">
             <!-- Actions -->
 
 
-            <div class="form-actions">
+<div class="form-actions">
 
 
-                <button
-
-                type="submit"
-
-                class="btn save-button">
+    <button
+    type="submit"
+    class="btn save-button">
 
 
-                    <i class="bi bi-check-lg"></i>
+        <i class="bi bi-check-lg"></i>
 
 
-                    Create Topic
+        Create Topic
 
 
-                </button>
-
+    </button>
 
 
 
-                <a href="{% url "index" %}"
-
-                class="btn cancel-button">
 
 
-                    Cancel
+    <a href="{% url 'index' %}"
+       class="btn cancel-button">
 
 
-                </a>
+        Cancel
 
 
-            </div>
+    </a>
+
+
+
+
+
+    <a href="{% url 'index' %}"
+       class="btn secondary-button">
+
+
+        <i class="bi bi-house"></i>
+
+
+        Back to Home
+
+
+    </a>
+
+
+
+</div>
 
 
 

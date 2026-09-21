@@ -27,38 +27,86 @@
 
     <!-- Topic Header -->
 
-    <div class="topic-header">
+<!-- Topic Header -->
 
-        <div>
+<div class="topic-header">
 
-            <h1>
-                {{ topic.title }}
-            </h1>
 
-            <p>
-                {{ topic.description }}
-            </p>
+    <div>
 
-        </div>
+
+        <h1>
+
+            {{ topic.title }}
+
+        </h1>
+
+
+        <p>
+
+            {{ topic.description }}
+
+        </p>
+
+
+    </div>
+
+
+
+
+
+    <div class="header-actions">
+
+
+        <a href="{% url 'index' %}"
+           class="btn secondary-button">
+
+
+            <i class="bi bi-house"></i>
+
+
+            Back to Home
+
+
+        </a>
+
+
+
 
 
         <form method="POST"
+
               action="{% url 'delete_topic' topic.id %}"
+
               onsubmit="return confirmDelete();">
+
 
             {% csrf_token %}
 
+
             <button type="submit"
+
                     class="btn delete-button">
 
+
                 <i class="bi bi-trash"></i>
+
+
                 Delete Topic
+
 
             </button>
 
+
         </form>
 
+
+
     </div>
+
+
+
+</div>
 
 
 
