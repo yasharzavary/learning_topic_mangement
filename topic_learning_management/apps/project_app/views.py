@@ -18,3 +18,6 @@ def index(request):
 
     return render(request, 'topics/index.html', context)
 
+
+def create_topic(request):
+    return render(request, 'topics/create.html')

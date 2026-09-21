@@ -1,0 +1,250 @@
+.create-topic-page {
+
+
+    padding:
+    25px;
+
+
+}
+
+
+
+
+.page-header {
+
+
+    margin-bottom:
+    25px;
+
+
+}
+
+
+
+
+.page-header h1 {
+
+
+    color:
+    #0F172A;
+
+
+    font-size:
+    28px;
+
+
+}
+
+
+
+
+
+.page-header p {
+
+
+    color:
+    #64748B;
+
+
+}
+
+
+
+
+
+.form-card {
+
+
+    background:
+    #FFFFFF;
+
+
+    border:
+    1px solid #E2E8F0;
+
+
+    border-radius:
+    12px;
+
+
+    padding:
+    30px;
+
+
+    max-width:
+    900px;
+
+
+}
+
+
+
+
+
+.form-group {
+
+
+    margin-bottom:
+    22px;
+
+
+}
+
+
+
+
+
+.form-group label {
+
+
+    display:
+    block;
+
+
+    margin-bottom:
+    7px;
+
+
+    color:
+    #1E293B;
+
+
+    font-weight:
+    600;
+
+
+}
+
+
+
+
+
+.form-control,
+.form-select {
+
+
+    border:
+    1px solid #CBD5E1;
+
+
+}
+
+
+
+
+
+.form-control:focus,
+.form-select:focus {
+
+
+    border-color:
+    #4F46E5;
+
+
+    box-shadow:
+    0 0 0 3px #EEF2FF;
+
+
+}
+
+
+
+
+
+small {
+
+
+    color:
+    #64748B;
+
+
+}
+
+
+
+
+
+.form-actions {
+
+
+    margin-top:
+    30px;
+
+
+    display:
+    flex;
+
+
+    gap:
+    12px;
+
+
+}
+
+
+
+
+
+.save-button {
+
+
+    background:
+    #4F46E5;
+
+
+    color:
+    white;
+
+
+}
+
+
+
+
+
+.save-button:hover {
+
+
+    background:
+    #4338CA;
+
+
+    color:
+    white;
+
+
+}
+
+
+
+
+
+.cancel-button {
+
+
+    background:
+    white;
+
+
+    border:
+    1px solid #CBD5E1;
+
+
+    color:
+    #334155;
+
+
+}
+
+
+
+
+
+.cancel-button:hover {
+
+
+    background:
+    #F1F5F9;
+
+
+}

@@ -1,0 +1,443 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+
+{% block title %}
+
+Create Topic
+
+{% endblock %}
+
+
+
+
+{% block extra_css %}
+
+<link rel="stylesheet"
+href="{% static 'css/topic_create.css' %}">
+
+{% endblock %}
+
+
+
+
+{% block content %}
+
+
+
+<div class="create-topic-page">
+
+
+
+    <!-- Page Header -->
+
+
+    <div class="page-header">
+
+
+        <div>
+
+
+            <h1>
+
+                Create New Topic
+
+            </h1>
+
+
+            <p>
+
+                Start a new learning journey
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <!-- Form Card -->
+
+
+    <div class="form-card">
+
+
+
+        <form method="POST"
+        enctype="multipart/form-data">
+
+
+            {% csrf_token %}
+
+
+
+
+
+            <!-- Topic Title -->
+
+
+            <div class="form-group">
+
+
+                <label>
+
+                    Topic Title
+
+                </label>
+
+
+                <input
+
+                type="text"
+
+                name="title"
+
+                class="form-control"
+
+                placeholder="Example: How does reinforcement learning work?"
+
+                required>
+
+
+            </div>
+
+
+
+
+
+
+
+            <!-- Description -->
+
+
+            <div class="form-group">
+
+
+                <label>
+
+                    Description
+
+                </label>
+
+
+                <textarea
+
+                name="description"
+
+                class="form-control"
+
+                rows="4"
+
+                placeholder="Short explanation about this topic">
+
+                </textarea>
+
+
+            </div>
+
+
+
+
+
+
+
+            <div class="row">
+
+
+
+                <!-- Category -->
+
+
+                <div class="col-md-6 form-group">
+
+
+                    <label>
+
+                        Category
+
+                    </label>
+
+
+                    <select
+
+                    name="category"
+
+                    class="form-select"
+
+                    required>
+
+
+                        <option value="">
+
+                            Select category
+
+                        </option>
+
+
+
+                        {% for category in categories %}
+
+
+                        <option value="{{ category.id }}">
+
+
+                            {{ category.name }}
+
+
+                        </option>
+
+
+                        {% endfor %}
+
+
+                    </select>
+
+
+                </div>
+
+
+
+
+
+                <!-- Priority -->
+
+
+                <div class="col-md-6 form-group">
+
+
+                    <label>
+
+                        Priority
+
+                    </label>
+
+
+                    <select
+
+                    name="priority"
+
+                    class="form-select">
+
+
+                        <option value="LOW">
+
+                            Low
+
+                        </option>
+
+
+                        <option value="MEDIUM"
+                        selected>
+
+                            Medium
+
+                        </option>
+
+
+                        <option value="HIGH">
+
+                            High
+
+                        </option>
+
+
+                        <option value="CRITICAL">
+
+                            Critical
+
+                        </option>
+
+
+                    </select>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+
+
+
+            <!-- Learning Goal -->
+
+
+            <div class="form-group">
+
+
+                <label>
+
+                    Learning Goal
+
+                </label>
+
+
+                <textarea
+
+                name="learning_goal"
+
+                class="form-control"
+
+                rows="3"
+
+                placeholder="Why do you want to learn this topic?">
+
+                </textarea>
+
+
+            </div>
+
+
+
+
+
+
+
+
+            <!-- Origin Reason -->
+
+
+            <div class="form-group">
+
+
+                <label>
+
+                    Origin Reason
+
+                </label>
+
+
+                <textarea
+
+                name="origin_reason"
+
+                class="form-control"
+
+                rows="3"
+
+                placeholder="What made you interested in this topic?">
+
+                </textarea>
+
+
+            </div>
+
+
+
+
+
+
+
+            <!-- Origin File -->
+
+
+            <div class="form-group">
+
+
+                <label>
+
+                    Related File (Optional)
+
+                </label>
+
+
+                <input
+
+                type="file"
+
+                name="origin_file"
+
+                class="form-control">
+
+
+                <small>
+
+                    Image, PDF, screenshot, article, or other reference file.
+
+                </small>
+
+
+            </div>
+
+
+
+
+
+
+
+
+            <!-- Actions -->
+
+
+            <div class="form-actions">
+
+
+                <button
+
+                type="submit"
+
+                class="btn save-button">
+
+
+                    <i class="bi bi-check-lg"></i>
+
+
+                    Create Topic
+
+
+                </button>
+
+
+
+
+                <a href="#"
+
+                class="btn cancel-button">
+
+
+                    Cancel
+
+
+                </a>
+
+
+            </div>
+
+
+
+
+
+        </form>
+
+
+
+    </div>
+
+
+
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+
+{% block extra_js %}
+
+<script src="{% static 'js/topic_create.js' %}"></script>
+
+{% endblock %}
