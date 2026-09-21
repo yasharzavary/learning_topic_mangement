@@ -14,7 +14,7 @@ def custom_404(request, exception):
 def index(request):
     context = {
         'topics': Topic.objects.all(),
-        'category': Category.objects.all()
+        'categories': Category.objects.all()
     }
 
     return render(request, 'topics/index.html', context)
