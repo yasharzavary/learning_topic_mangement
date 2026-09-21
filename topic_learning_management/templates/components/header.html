@@ -31,34 +31,7 @@
 
 
 
-    <!-- Search -->
 
-
-    <div class="header-search">
-
-
-        <form method="GET" action="#">
-
-            <div class="search-box">
-
-
-                <i class="bi bi-search"></i>
-
-
-                <input 
-                    type="text"
-                    name="q"
-                    placeholder="Search topics..."
-                >
-
-
-            </div>
-
-
-        </form>
-
-
-    </div>
 
 
 
@@ -122,9 +95,12 @@
 
 
                 <li>
-                    <a class="dropdown-item" href="#">
-                        Logout
-                    </a>
+                    <form method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="dropdown-item">
+                            Logout
+                        </button>
+                    </form>
                 </li>
 
 
