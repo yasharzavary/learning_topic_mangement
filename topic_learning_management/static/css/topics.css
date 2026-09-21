@@ -1,0 +1,426 @@
+.topics-page {
+
+
+    padding:
+    25px;
+
+
+}
+
+
+
+
+
+.page-header {
+
+
+    display:flex;
+
+
+    justify-content:
+    space-between;
+
+
+    align-items:
+    center;
+
+
+    margin-bottom:
+    25px;
+
+
+}
+
+
+
+
+
+.page-header h1 {
+
+
+    color:
+    #0F172A;
+
+
+    font-size:
+    28px;
+
+
+}
+
+
+
+
+
+.page-header p {
+
+
+    color:
+    #64748B;
+
+
+}
+
+
+
+
+
+.primary-button {
+
+
+    background:
+    #4F46E5;
+
+
+    color:
+    white;
+
+
+}
+
+
+
+
+
+.primary-button:hover {
+
+
+    background:
+    #4338CA;
+
+
+    color:
+    white;
+
+
+}
+
+
+
+
+
+.filter-card,
+
+
+.table-card {
+
+
+    background:
+    white;
+
+
+    border:
+    1px solid #E2E8F0;
+
+
+    border-radius:
+    12px;
+
+
+    padding:
+    20px;
+
+
+    margin-bottom:
+    25px;
+
+
+}
+
+
+
+
+
+.filter-card label {
+
+
+    font-size:
+    14px;
+
+
+    color:
+    #64748B;
+
+
+    margin-bottom:
+    6px;
+
+
+}
+
+
+
+
+
+.search-input {
+
+
+    position:
+    relative;
+
+
+}
+
+
+
+
+
+.search-input i {
+
+
+    position:
+    absolute;
+
+
+    left:
+    12px;
+
+
+    top:
+    12px;
+
+
+    color:
+    #94A3B8;
+
+
+}
+
+
+
+
+
+.search-input input {
+
+
+    padding-left:
+    38px;
+
+
+}
+
+
+
+
+
+.topic-table {
+
+
+    margin:
+    0;
+
+
+}
+
+
+
+
+
+.topic-table th {
+
+
+    color:
+    #64748B;
+
+
+    font-weight:
+    600;
+
+
+}
+
+
+
+
+
+.topic-title {
+
+
+    font-weight:
+    600;
+
+
+    color:
+    #1E293B;
+
+
+}
+
+
+
+
+
+.topic-table small {
+
+
+    color:
+    #64748B;
+
+
+}
+
+
+
+
+
+.category-badge {
+
+
+    background:
+    #EEF2FF;
+
+
+    color:
+    #4338CA;
+
+
+    padding:
+    5px 10px;
+
+
+    border-radius:
+    20px;
+
+
+    font-size:
+    13px;
+
+
+}
+
+
+
+
+
+.status-badge {
+
+
+    padding:
+    5px 10px;
+
+
+    border-radius:
+    20px;
+
+
+    font-size:
+    13px;
+
+
+}
+
+
+
+
+
+.status-IDEA {
+
+
+    background:
+    #F1F5F9;
+
+
+}
+
+
+
+
+
+.status-SOURCE_RESEARCH {
+
+
+    background:
+    #DBEAFE;
+
+
+}
+
+
+
+
+
+.status-LEARNING {
+
+
+    background:
+    #CCFBF1;
+
+
+}
+
+
+
+
+
+.status-EXPERIENCE {
+
+
+    background:
+    #FEF3C7;
+
+
+}
+
+
+
+
+
+.status-COMPLETED {
+
+
+    background:
+    #DCFCE7;
+
+
+}
+
+
+
+
+
+.view-button {
+
+
+    border:
+    1px solid #CBD5E1;
+
+
+    color:
+    #334155;
+
+
+}
+
+
+
+
+
+.view-button:hover {
+
+
+    background:
+    #F1F5F9;
+
+
+}
+
+
+
+
+
+.empty-state {
+
+
+    text-align:
+    center;
+
+
+    padding:
+    40px;
+
+
+    color:
+    #94A3B8;
+
+
+}

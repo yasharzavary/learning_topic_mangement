@@ -30,5 +30,6 @@ urlpatterns = [
         "login/",
         auth_views.LoginView.as_view(template_name="authentication/login.html"),
         name="login",
-    )
+    ),
+    path('', include('apps.project_app.urls'))
 ]
