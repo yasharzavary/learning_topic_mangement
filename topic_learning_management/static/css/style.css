@@ -60,7 +60,41 @@
 
 
 
+/* =========================
+   Global Reset
+========================= */
+
+
+* {
+
+
+    box-sizing:
+    border-box;
+
+
+}
+
+
+
+html,
 body {
+
+
+    min-height:
+    100%;
+
+
+}
+
+
+
+
+
+body {
+
+
+    margin:
+    0;
 
 
     background:
@@ -77,6 +111,14 @@ body {
     sans-serif;
 
 
+    display:
+    flex;
+
+
+    flex-direction:
+    column;
+
+
 }
 
 
@@ -84,7 +126,59 @@ body {
 
 
 /* =========================
- Header
+   Application Layout
+========================= */
+
+
+.app-wrapper {
+
+
+    min-height:
+    100vh;
+
+
+    display:
+    flex;
+
+
+    flex-direction:
+    column;
+
+
+}
+
+
+
+
+
+.main-layout {
+
+
+    flex:
+    1;
+
+
+}
+
+
+
+
+
+.content-area {
+
+
+    flex:
+    1;
+
+
+}
+
+
+
+
+
+/* =========================
+   Header
 ========================= */
 
 
@@ -296,6 +390,10 @@ body {
     none;
 
 
+    transition:
+    0.2s;
+
+
 }
 
 
@@ -358,8 +456,11 @@ body {
 
 
 
+
+
+
 /* =========================
- Footer
+   Footer
 ========================= */
 
 
@@ -393,6 +494,10 @@ body {
 
     justify-content:
     space-between;
+
+
+    align-items:
+    center;
 
 
     color:
