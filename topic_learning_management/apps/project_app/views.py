@@ -934,10 +934,64 @@ def complete_topic(request, topic_id):
 
 
 
-
-
 @login_required
 def delete_topic(request, topic_id):
+
+    topic = get_object_or_404(
+        Topic,
+        id=topic_id
+    )
+
+
+    if request.method == "POST":
+
+
+        # Delete topic origin file
+
+        if topic.origin_file:
+
+            topic.origin_file.delete(
+                save=False
+            )
+
+
+
+
+        # Delete all source files
+
+        sources = TopicSource.objects.filter(
+            topic=topic
+        )
+
+
+        for source in sources:
+
+
+            if source.source_file:
+
+                source.source_file.delete(
+                    save=False
+                )
+
+
+
+
+        # Delete topic and related database data
+
+        topic.delete()
+
+
+
+        messages.success(
+            request,
+            "Topic and related files deleted successfully."
+        )
+
+
+
+    return redirect(
+        "index"
+    )
 
     topic = get_object_or_404(
         Topic,
