@@ -1,356 +1,87 @@
 <div class="phase-section">
-
-
     <div class="phase-header">
-
-
         <div>
-
-            <h2>
-                Learning
-            </h2>
-
-
+            <h2>Learning</h2>
             {% if timeline.learning_finish %}
-
                 <p>
                     Learning phase completed.
                     Information is now read-only.
                 </p>
-
             {% else %}
-
-                <p>
-                    Write your notes, findings, and questions during learning.
-                </p>
-
+                <p>Write your notes, findings, and questions during learning.</p>
             {% endif %}
-
-
         </div>
-
-
-
-
         {% if timeline.learning_finish %}
-
-
             <span class="status-badge status-completed">
-
                 <i class="bi bi-check-circle"></i>
-
                 Completed
-
             </span>
-
-
         {% else %}
-
-
             <span class="status-badge status-active">
-
                 <i class="bi bi-circle-fill"></i>
-
                 In Progress
-
             </span>
-
-
         {% endif %}
-
-
     </div>
-
-
-
-
-
-
-
     <!-- Editable Learning Form -->
-
-
     {% if not timeline.learning_finish %}
-
-
-    <div class="phase-card">
-
-
-        <form method="POST"
-              action="{% url 'save_learning' topic.id %}">
-
-
-            {% csrf_token %}
-
-
-
-
-
-            <div class="mb-4">
-
-
-                <label>
-
-                    Learning Notes
-
-                </label>
-
-
-                <textarea
-
-                    name="notes"
-
-                    rows="8"
-
-                    class="form-control"
-
-                    placeholder="Write your learning notes..."
-
-                >{% if learning %}{{ learning.notes }}{% endif %}</textarea>
-
-
-            </div>
-
-
-
-
-
-
-            <div class="mb-4">
-
-
-                <label>
-
-                    Key Findings
-
-                </label>
-
-
-                <textarea
-
-                    name="key_findings"
-
-                    rows="6"
-
-                    class="form-control"
-
-                    placeholder="Important concepts and discoveries..."
-
-                >{% if learning %}{{ learning.key_findings }}{% endif %}</textarea>
-
-
-            </div>
-
-
-
-
-
-
-            <div class="mb-4">
-
-
-                <label>
-
-                    Questions
-
-                </label>
-
-
-                <textarea
-
-                    name="questions"
-
-                    rows="6"
-
-                    class="form-control"
-
-                    placeholder="Questions discovered during learning..."
-
-                >{% if learning %}{{ learning.questions }}{% endif %}</textarea>
-
-
-            </div>
-
-
-
-
-
-
-            <button
-
-                type="submit"
-
-                class="btn primary-button"
-
-
-            >
-
-                <i class="bi bi-save"></i>
-
-                Save Learning Notes
-
-
-            </button>
-
-
-
-        </form>
-
-
-    </div>
-
-
+        <div class="phase-card">
+            <form method="post" action="{% url 'save_learning' topic.id %}">
+                {% csrf_token %}
+                <div class="mb-4">
+                    <label>Learning Notes</label>
+                    <textarea name="notes"
+                              rows="8"
+                              class="form-control"
+                              placeholder="Write your learning notes...">{% if learning %}{{ learning.notes }}{% endif %}</textarea>
+                </div>
+                <div class="mb-4">
+                    <label>Key Findings</label>
+                    <textarea name="key_findings"
+                              rows="6"
+                              class="form-control"
+                              placeholder="Important concepts and discoveries...">{% if learning %}{{ learning.key_findings }}{% endif %}</textarea>
+                </div>
+                <div class="mb-4">
+                    <label>Questions</label>
+                    <textarea name="questions"
+                              rows="6"
+                              class="form-control"
+                              placeholder="Questions discovered during learning...">{% if learning %}{{ learning.questions }}{% endif %}</textarea>
+                </div>
+                <button type="submit"  class="btn primary-button">
+                    <i class="bi bi-save"></i>
+                    Save Learning Notes
+                </button>
+            </form>
+        </div>
     {% endif %}
-
-
-
-
-
-
-
-
-
     <!-- Read Only Section -->
-
-
     {% if timeline.learning_finish %}
-
-
-
-    <div class="phase-card readonly-card">
-
-
-        <h3>
-            Learning Notes
-        </h3>
-
-
-        <p>
-
-            {{ learning.notes|linebreaks }}
-
-        </p>
-
-
-
-    </div>
-
-
-
-
-
-
-
-    <div class="phase-card readonly-card">
-
-
-        <h3>
-            Key Findings
-        </h3>
-
-
-        <p>
-
-            {{ learning.key_findings|linebreaks }}
-
-        </p>
-
-
-
-    </div>
-
-
-
-
-
-
-
-
-    <div class="phase-card readonly-card">
-
-
-        <h3>
-            Questions
-        </h3>
-
-
-        <p>
-
-            {{ learning.questions|linebreaks }}
-
-        </p>
-
-
-
-    </div>
-
-
-
+        <div class="phase-card readonly-card">
+            <h3>Learning Notes</h3>
+            <p>{{ learning.notes|linebreaks }}</p>
+        </div>
+        <div class="phase-card readonly-card">
+            <h3>Key Findings</h3>
+            <p>{{ learning.key_findings|linebreaks }}</p>
+        </div>
+        <div class="phase-card readonly-card">
+            <h3>Questions</h3>
+            <p>{{ learning.questions|linebreaks }}</p>
+        </div>
     {% endif %}
-
-
-
-
-
-
-
     <!-- Dates -->
-
-
     <div class="phase-card phase-dates">
-
-
         <div>
-
-
-            <span>
-                Started
-            </span>
-
-
-            <strong>
-
-                {{ timeline.learning_start|date:"d M Y, H:i" }}
-
-            </strong>
-
-
+            <span>Started</span>
+            <strong>{{ timeline.learning_start|date:"d M Y, H:i" }}</strong>
         </div>
-
-
-
-
-
-
         {% if timeline.learning_finish %}
-
-
-        <div>
-
-
-            <span>
-                Finished
-            </span>
-
-
-            <strong>
-
-                {{ timeline.learning_finish|date:"d M Y, H:i" }}
-
-            </strong>
-
-
-        </div>
-
-
+            <div>
+                <span>Finished</span>
+                <strong>{{ timeline.learning_finish|date:"d M Y, H:i" }}</strong>
+            </div>
         {% endif %}
-
-
-
     </div>
-
-
-
-
-
 </div>

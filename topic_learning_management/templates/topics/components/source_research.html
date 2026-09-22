@@ -1,217 +1,97 @@
 <div class="phase-section">
-
     <div class="phase-header">
-
         <div>
             <h2>Source Research</h2>
-
             {% if timeline.source_research_finish %}
                 <p>
                     Source research has been completed.
                     The collected information is now read-only.
                 </p>
             {% else %}
-                <p>
-                    Collect and organize learning resources for this topic.
-                </p>
+                <p>Collect and organize learning resources for this topic.</p>
             {% endif %}
         </div>
-
-
         {% if timeline.source_research_finish %}
-
             <span class="status-badge status-completed">
                 <i class="bi bi-check-circle"></i>
                 Completed
             </span>
-
         {% else %}
-
             <span class="status-badge status-active">
                 <i class="bi bi-circle-fill"></i>
                 In Progress
             </span>
-
         {% endif %}
-
     </div>
-
-
-
     <!-- Add Source Form -->
     <!-- Only visible while research is active -->
-
     {% if not timeline.source_research_finish %}
-
         <div class="phase-card">
-
             <h3>Add Source</h3>
-
-
-            <form method="POST"
+            <form method="post"
                   action="{% url 'add_source' topic.id %}"
                   enctype="multipart/form-data">
-
                 {% csrf_token %}
-
-
                 <div class="row">
-
                     <div class="col-md-6 mb-3">
-
                         <label>Title</label>
-
-                        <input
-                            type="text"
-                            name="title"
-                            class="form-control"
-                            placeholder="Source title"
-                            required
-                        >
-
+                        <input type="text"
+                               name="title"
+                               class="form-control"
+                               placeholder="Source title"
+                               required>
                     </div>
-
-
                     <div class="col-md-6 mb-3">
-
                         <label>Source Type</label>
-
-                        <select
-                            name="source_type"
-                            class="form-select"
-                            required
-                        >
-
-                            <option value="BOOK">
-                                Book
-                            </option>
-
-                            <option value="PAPER">
-                                Paper
-                            </option>
-
-                            <option value="VIDEO">
-                                Video
-                            </option>
-
-                            <option value="COURSE">
-                                Course
-                            </option>
-
-                            <option value="ARTICLE">
-                                Article
-                            </option>
-
-                            <option value="DOCUMENTATION">
-                                Documentation
-                            </option>
-
-                            <option value="OTHER">
-                                Other
-                            </option>
-
+                        <select name="source_type" class="form-select" required>
+                            <option value="BOOK">Book</option>
+                            <option value="PAPER">Paper</option>
+                            <option value="VIDEO">Video</option>
+                            <option value="COURSE">Course</option>
+                            <option value="ARTICLE">Article</option>
+                            <option value="DOCUMENTATION">Documentation</option>
+                            <option value="OTHER">Other</option>
                         </select>
-
                     </div>
-
                 </div>
-
-
-
                 <div class="row">
-
                     <div class="col-md-6 mb-3">
-
                         <label>Author</label>
-
-                        <input
-                            type="text"
-                            name="author"
-                            class="form-control"
-                            placeholder="Author name"
-                        >
-
+                        <input type="text"
+                               name="author"
+                               class="form-control"
+                               placeholder="Author name">
                     </div>
-
-
                     <div class="col-md-6 mb-3">
-
                         <label>URL</label>
-
-                        <input
-                            type="url"
-                            name="url"
-                            class="form-control"
-                            placeholder="https://"
-                        >
-
+                        <input type="url" name="url" class="form-control" placeholder="https://">
                     </div>
-
                 </div>
-
-
-
                 <div class="mb-3">
-
                     <label>Notes</label>
-
-                    <textarea
-                        name="notes"
-                        rows="3"
-                        class="form-control"
-                        placeholder="Why is this source useful?"
-                    ></textarea>
-
+                    <textarea name="notes"
+                              rows="3"
+                              class="form-control"
+                              placeholder="Why is this source useful?"></textarea>
                 </div>
-
-
-
                 <div class="mb-3">
-
                     <label>File</label>
-
-                    <input
-                        type="file"
-                        name="source_file"
-                        class="form-control"
-                    >
-
+                    <input type="file" name="source_file" class="form-control">
                 </div>
-
-
-
-                <button
-                    type="submit"
-                    class="btn primary-button"
-                >
-
+                <button type="submit" class="btn primary-button">
                     <i class="bi bi-plus-lg"></i>
                     Add Source
-
                 </button>
-
             </form>
-
         </div>
-
     {% endif %}
-
-
-
     <!-- Collected Sources -->
     <!-- Always remains visible after research starts -->
-
     <div class="phase-card">
-
         <h3>Collected Sources</h3>
-
-
         <div class="table-responsive">
-
             <table class="table">
-
                 <thead>
-
                     <tr>
                         <th>Title</th>
                         <th>Type</th>
@@ -219,130 +99,55 @@
                         <th>URL / File</th>
                         <th>Notes</th>
                     </tr>
-
                 </thead>
-
-
                 <tbody>
-
                     {% for source in sources %}
-
                         <tr>
-
+                            <td>{{ source.title }}</td>
+                            <td>{{ source.source_type|title }}</td>
+                            <td>{{ source.author|default:"-" }}</td>
                             <td>
-                                {{ source.title }}
-                            </td>
-
-
-                            <td>
-                                {{ source.source_type|title }}
-                            </td>
-
-
-                            <td>
-                                {{ source.author|default:"-" }}
-                            </td>
-
-
-                            <td>
-
                                 {% if source.url %}
-
-                                    <a
-                                        href="{{ source.url }}"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
+                                    <a href="{{ source.url }}" target="_blank" rel="noopener noreferrer">
                                         Open Link
                                         <i class="bi bi-box-arrow-up-right"></i>
                                     </a>
-
                                 {% endif %}
-
-
                                 {% if source.url and source.source_file %}
                                     <br>
                                 {% endif %}
-
-
                                 {% if source.source_file %}
-
-                                    <a
-                                        href="{{ source.source_file.url }}"
-                                        target="_blank"
-                                    >
+                                    <a href="{{ source.source_file.url }}" target="_blank">
                                         Open File
                                         <i class="bi bi-file-earmark"></i>
                                     </a>
-
                                 {% endif %}
-
-
                                 {% if not source.url and not source.source_file %}
                                     -
                                 {% endif %}
-
                             </td>
-
-
-                            <td>
-                                {{ source.notes|default:"-" }}
-                            </td>
-
+                            <td>{{ source.notes|default:"-" }}</td>
                         </tr>
-
-
                     {% empty %}
-
                         <tr>
-
-                            <td colspan="5" class="empty-state">
-                                No sources added yet.
-                            </td>
-
+                            <td colspan="5" class="empty-state">No sources added yet.</td>
                         </tr>
-
                     {% endfor %}
-
                 </tbody>
-
             </table>
-
         </div>
-
     </div>
-
-
-
     <!-- Research Dates -->
-
     <div class="phase-card phase-dates">
-
         <div>
-
             <span>Started</span>
-
-            <strong>
-                {{ timeline.source_research_start|date:"d M Y, H:i" }}
-            </strong>
-
+            <strong>{{ timeline.source_research_start|date:"d M Y, H:i" }}</strong>
         </div>
-
-
         {% if timeline.source_research_finish %}
-
             <div>
-
                 <span>Finished</span>
-
-                <strong>
-                    {{ timeline.source_research_finish|date:"d M Y, H:i" }}
-                </strong>
-
+                <strong>{{ timeline.source_research_finish|date:"d M Y, H:i" }}</strong>
             </div>
-
         {% endif %}
-
     </div>
-
 </div>

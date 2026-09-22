@@ -1,401 +1,159 @@
 :root {
+  --background: #f8fafc;
 
+  --surface: #ffffff;
 
-    --background:
-    #F8FAFC;
+  --header: #0f172a;
 
+  --primary: #4f46e5;
 
-    --surface:
-    #FFFFFF;
+  --primary-hover: #4338ca;
 
+  --text: #1e293b;
 
-    --header:
-    #0F172A;
+  --secondary-text: #64748b;
 
-
-    --primary:
-    #4F46E5;
-
-
-    --primary-hover:
-    #4338CA;
-
-
-    --text:
-    #1E293B;
-
-
-    --secondary-text:
-    #64748B;
-
-
-    --border:
-    #E2E8F0;
-
+  --border: #e2e8f0;
 }
-
-
-
-
 
 body {
+  margin: 0;
 
+  min-height: 100vh;
 
-    margin:
-    0;
+  background: var(--background);
 
-
-    min-height:
-    100vh;
-
-
-    background:
-    var(--background);
-
-
-    font-family:
-    "Inter",
-    Arial,
-    sans-serif;
-
-
+  font-family: "Inter", Arial, sans-serif;
 }
-
-
-
-
 
 .login-page {
+  min-height: 100vh;
 
+  display: flex;
 
-    min-height:
-    100vh;
+  justify-content: center;
 
-
-    display:
-    flex;
-
-
-    justify-content:
-    center;
-
-
-    align-items:
-    center;
-
-
+  align-items: center;
 }
-
-
-
-
 
 .login-card {
+  width: 420px;
 
+  background: var(--surface);
 
-    width:
-    420px;
+  border: 1px solid var(--border);
 
+  border-radius: 12px;
 
-    background:
-    var(--surface);
-
-
-    border:
-    1px solid var(--border);
-
-
-    border-radius:
-    12px;
-
-
-    padding:
-    40px;
-
-
+  padding: 40px;
 }
-
-
-
-
 
 .login-logo {
-
-
-    text-align:
-    center;
-
-
+  text-align: center;
 }
-
-
-
-
 
 .logo-icon {
+  width: 60px;
 
+  height: 60px;
 
-    width:
-    60px;
+  margin: auto;
 
+  border-radius: 12px;
 
-    height:
-    60px;
+  background: #eef2ff;
 
+  display: flex;
 
-    margin:
-    auto;
+  align-items: center;
 
+  justify-content: center;
 
-    border-radius:
-    12px;
+  color: #4f46e5;
 
-
-    background:
-    #EEF2FF;
-
-
-    display:
-    flex;
-
-
-    align-items:
-    center;
-
-
-    justify-content:
-    center;
-
-
-    color:
-    #4F46E5;
-
-
-    font-size:
-    30px;
-
-
+  font-size: 30px;
 }
-
-
-
-
 
 .login-logo h1 {
+  margin-top: 20px;
 
+  font-size: 22px;
 
-    margin-top:
-    20px;
+  color: var(--header);
 
-
-    font-size:
-    22px;
-
-
-    color:
-    var(--header);
-
-
-    font-weight:
-    700;
-
-
+  font-weight: 700;
 }
-
-
-
-
 
 .login-description {
+  text-align: center;
 
+  margin: 15px 0 30px;
 
-    text-align:
-    center;
-
-
-    margin:
-    15px 0 30px;
-
-
-    color:
-    var(--secondary-text);
-
-
+  color: var(--secondary-text);
 }
-
-
-
-
 
 .form-group {
-
-
-    margin-bottom:
-    20px;
-
-
+  margin-bottom: 20px;
 }
-
-
-
-
 
 .form-group label {
+  color: var(--text);
 
+  font-weight: 500;
 
-    color:
-    var(--text);
-
-
-    font-weight:
-    500;
-
-
-    margin-bottom:
-    8px;
-
-
+  margin-bottom: 8px;
 }
-
-
-
-
 
 .input-container {
-
-
-    position:
-    relative;
-
-
+  position: relative;
 }
-
-
-
-
 
 .input-container i {
+  position: absolute;
 
+  left: 14px;
 
-    position:
-    absolute;
+  top: 50%;
 
+  transform: translateY(-50%);
 
-    left:
-    14px;
-
-
-    top:
-    50%;
-
-
-    transform:
-    translateY(-50%);
-
-
-    color:
-    #94A3B8;
-
-
+  color: #94a3b8;
 }
-
-
-
-
 
 .input-container input {
+  padding-left: 42px;
 
+  height: 44px;
 
-    padding-left:
-    42px;
-
-
-    height:
-    44px;
-
-
-    border:
-    1px solid var(--border);
-
-
+  border: 1px solid var(--border);
 }
-
-
-
-
 
 .input-container input:focus {
+  border-color: var(--primary);
 
-
-    border-color:
-    var(--primary);
-
-
-    box-shadow:
-    0 0 0 3px #EEF2FF;
-
-
+  box-shadow: 0 0 0 3px #eef2ff;
 }
-
-
-
-
 
 .login-button {
+  width: 100%;
 
+  height: 46px;
 
-    width:
-    100%;
+  background: var(--primary);
 
+  color: white;
 
-    height:
-    46px;
+  font-weight: 600;
 
-
-    background:
-    var(--primary);
-
-
-    color:
-    white;
-
-
-    font-weight:
-    600;
-
-
-    margin-top:
-    10px;
-
-
+  margin-top: 10px;
 }
-
-
-
-
 
 .login-button:hover {
+  background: var(--primary-hover);
 
-
-    background:
-    var(--primary-hover);
-
-
-    color:
-    white;
-
-
+  color: white;
 }
 
-
-
-
-
 .alert {
-
-
-    font-size:
-    14px;
-
-
+  font-size: 14px;
 }

@@ -1,424 +1,143 @@
 <div class="phase-section">
-
-
     <div class="phase-header">
-
-
         <div>
-
-            <h2>
-                Learning Experience Evaluation
-            </h2>
-
-
+            <h2>Learning Experience Evaluation</h2>
             {% if timeline.experience_finish %}
-
-
                 <p>
                     Experience evaluation completed.
                     Information is now read-only.
                 </p>
-
-
             {% else %}
-
-
-                <p>
-                    Evaluate your learning journey and knowledge improvement.
-                </p>
-
-
+                <p>Evaluate your learning journey and knowledge improvement.</p>
             {% endif %}
-
-
         </div>
-
-
-
-
         {% if timeline.experience_finish %}
-
-
             <span class="status-badge status-completed">
-
                 <i class="bi bi-check-circle"></i>
-
                 Completed
-
             </span>
-
-
         {% else %}
-
-
             <span class="status-badge status-active">
-
                 <i class="bi bi-circle-fill"></i>
-
                 In Progress
-
             </span>
-
-
         {% endif %}
-
-
     </div>
-
-
-
-
-
-
-
-
     <!-- Editable Evaluation Form -->
-
-
     {% if not timeline.experience_finish %}
-
-
-
-    <div class="phase-card">
-
-
-        <form method="POST"
-              action="{% url 'save_experience' topic.id %}">
-
-
-            {% csrf_token %}
-
-
-
-            <div class="row">
-
-
-                <div class="col-md-6 mb-3">
-
-                    <label>
-                        Difficulty Score (0-10)
-                    </label>
-
-
-                    <input
-                        type="number"
-                        min="0"
-                        max="10"
-                        name="difficulty_score"
-                        class="form-control"
-                        value="{{ experience.difficulty_score|default:'' }}"
-                    >
-
+        <div class="phase-card">
+            <form method="post" action="{% url 'save_experience' topic.id %}">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label>Difficulty Score (0-10)</label>
+                        <input type="number"
+                               min="0"
+                               max="10"
+                               name="difficulty_score"
+                               class="form-control"
+                               value="{{ experience.difficulty_score|default:'' }}">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label>Usefulness Score (0-10)</label>
+                        <input type="number"
+                               min="0"
+                               max="10"
+                               name="usefulness_score"
+                               class="form-control"
+                               value="{{ experience.usefulness_score|default:'' }}">
+                    </div>
                 </div>
-
-
-
-
-                <div class="col-md-6 mb-3">
-
-                    <label>
-                        Usefulness Score (0-10)
-                    </label>
-
-
-                    <input
-                        type="number"
-                        min="0"
-                        max="10"
-                        name="usefulness_score"
-                        class="form-control"
-                        value="{{ experience.usefulness_score|default:'' }}"
-                    >
-
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label>Interest Score (0-10)</label>
+                        <input type="number"
+                               min="0"
+                               max="10"
+                               name="interest_score"
+                               class="form-control"
+                               value="{{ experience.interest_score|default:'' }}">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label>Knowledge Before (0-10)</label>
+                        <input type="number"
+                               min="0"
+                               max="10"
+                               name="knowledge_before_score"
+                               class="form-control"
+                               value="{{ experience.knowledge_before_score|default:'' }}">
+                    </div>
                 </div>
-
-
-            </div>
-
-
-
-
-
-
-
-            <div class="row">
-
-
-                <div class="col-md-6 mb-3">
-
-                    <label>
-                        Interest Score (0-10)
-                    </label>
-
-
-                    <input
-                        type="number"
-                        min="0"
-                        max="10"
-                        name="interest_score"
-                        class="form-control"
-                        value="{{ experience.interest_score|default:'' }}"
-                    >
-
+                <div class="mb-3">
+                    <label>Knowledge After (0-10)</label>
+                    <input type="number"
+                           min="0"
+                           max="10"
+                           name="knowledge_after_score"
+                           class="form-control"
+                           value="{{ experience.knowledge_after_score|default:'' }}">
                 </div>
-
-
-
-
-                <div class="col-md-6 mb-3">
-
-                    <label>
-                        Knowledge Before (0-10)
-                    </label>
-
-
-                    <input
-                        type="number"
-                        min="0"
-                        max="10"
-                        name="knowledge_before_score"
-                        class="form-control"
-                        value="{{ experience.knowledge_before_score|default:'' }}"
-                    >
-
+                <div class="mb-3">
+                    <label>Best Learning Method</label>
+                    <textarea name="best_learning_method"
+                              rows="3"
+                              class="form-control">{{ experience.best_learning_method|default:'' }}</textarea>
                 </div>
-
-
-            </div>
-
-
-
-
-
-
-            <div class="mb-3">
-
-                <label>
-                    Knowledge After (0-10)
-                </label>
-
-
-                <input
-                    type="number"
-                    min="0"
-                    max="10"
-                    name="knowledge_after_score"
-                    class="form-control"
-                    value="{{ experience.knowledge_after_score|default:'' }}"
-                >
-
-
-            </div>
-
-
-
-
-
-
-
-            <div class="mb-3">
-
-
-                <label>
-                    Best Learning Method
-                </label>
-
-
-                <textarea
-                    name="best_learning_method"
-                    rows="3"
-                    class="form-control"
-                >{{ experience.best_learning_method|default:'' }}</textarea>
-
-
-            </div>
-
-
-
-
-
-
-
-            <div class="mb-3">
-
-
-                <label>
-                    Final Summary
-                </label>
-
-
-                <textarea
-                    name="final_summary"
-                    rows="6"
-                    class="form-control"
-                    placeholder="If I explain this topic to someone..."
-                >{{ experience.final_summary|default:'' }}</textarea>
-
-
-            </div>
-
-
-
-
-
-
-            <button
-                type="submit"
-                class="btn primary-button"
-            >
-
-                <i class="bi bi-save"></i>
-
-                Save Evaluation
-
-            </button>
-
-
-
-        </form>
-
-
-    </div>
-
-
-
+                <div class="mb-3">
+                    <label>Final Summary</label>
+                    <textarea name="final_summary"
+                              rows="6"
+                              class="form-control"
+                              placeholder="If I explain this topic to someone...">{{ experience.final_summary|default:'' }}</textarea>
+                </div>
+                <button type="submit" class="btn primary-button">
+                    <i class="bi bi-save"></i>
+                    Save Evaluation
+                </button>
+            </form>
+        </div>
     {% endif %}
-
-
-
-
-
-
-
-
     <!-- Read Only Result -->
-
-
     {% if timeline.experience_finish %}
-
-
-
-    <div class="phase-card readonly-card">
-
-
-        <h3>
-            Evaluation Results
-        </h3>
-
-
-        <p>
-            Difficulty:
-            {{ experience.difficulty_score }}/10
-        </p>
-
-
-        <p>
-            Usefulness:
-            {{ experience.usefulness_score }}/10
-        </p>
-
-
-        <p>
-            Interest:
-            {{ experience.interest_score }}/10
-        </p>
-
-
-        <p>
-            Knowledge Before:
-            {{ experience.knowledge_before_score }}/10
-        </p>
-
-
-        <p>
-            Knowledge After:
-            {{ experience.knowledge_after_score }}/10
-        </p>
-
-
-    </div>
-
-
-
-
-
-
-    <div class="phase-card readonly-card">
-
-
-        <h3>
-            Final Summary
-        </h3>
-
-
-        <p>
-
-            {{ experience.final_summary|linebreaks }}
-
-        </p>
-
-
-    </div>
-
-
-
+        <div class="phase-card readonly-card">
+            <h3>Evaluation Results</h3>
+            <p>
+                Difficulty:
+                {{ experience.difficulty_score }}/10
+            </p>
+            <p>
+                Usefulness:
+                {{ experience.usefulness_score }}/10
+            </p>
+            <p>
+                Interest:
+                {{ experience.interest_score }}/10
+            </p>
+            <p>
+                Knowledge Before:
+                {{ experience.knowledge_before_score }}/10
+            </p>
+            <p>
+                Knowledge After:
+                {{ experience.knowledge_after_score }}/10
+            </p>
+        </div>
+        <div class="phase-card readonly-card">
+            <h3>Final Summary</h3>
+            <p>{{ experience.final_summary|linebreaks }}</p>
+        </div>
     {% endif %}
-
-
-
-
-
-
-
-
     <!-- Dates -->
-
-
     <div class="phase-card phase-dates">
-
-
         <div>
-
-            <span>
-                Started
-            </span>
-
-
-            <strong>
-                {{ timeline.experience_start|date:"d M Y, H:i" }}
-            </strong>
-
-
+            <span>Started</span>
+            <strong>{{ timeline.experience_start|date:"d M Y, H:i" }}</strong>
         </div>
-
-
-
-
-
         {% if timeline.experience_finish %}
-
-
-        <div>
-
-            <span>
-                Finished
-            </span>
-
-
-            <strong>
-                {{ timeline.experience_finish|date:"d M Y, H:i" }}
-            </strong>
-
-
-        </div>
-
-
+            <div>
+                <span>Finished</span>
+                <strong>{{ timeline.experience_finish|date:"d M Y, H:i" }}</strong>
+            </div>
         {% endif %}
-
-
-
     </div>
-
-
-
 </div>

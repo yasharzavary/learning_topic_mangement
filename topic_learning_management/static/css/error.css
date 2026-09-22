@@ -1,358 +1,145 @@
 :root {
+  --background: #f8fafc;
 
+  --surface: #ffffff;
 
-    --background:
-    #F8FAFC;
+  --header: #0f172a;
 
+  --primary: #4f46e5;
 
-    --surface:
-    #FFFFFF;
+  --primary-hover: #4338ca;
 
+  --text: #1e293b;
 
-    --header:
-    #0F172A;
+  --secondary-text: #64748b;
 
-
-    --primary:
-    #4F46E5;
-
-
-    --primary-hover:
-    #4338CA;
-
-
-    --text:
-    #1E293B;
-
-
-    --secondary-text:
-    #64748B;
-
-
-    --border:
-    #E2E8F0;
-
-
+  --border: #e2e8f0;
 }
-
-
-
-
 
 body {
+  margin: 0;
 
+  min-height: 100vh;
 
-    margin:
-    0;
+  background: var(--background);
 
-
-    min-height:
-    100vh;
-
-
-    background:
-    var(--background);
-
-
-    font-family:
-    "Inter",
-    Arial,
-    sans-serif;
-
-
+  font-family: "Inter", Arial, sans-serif;
 }
-
-
-
-
 
 .error-page {
+  min-height: 100vh;
 
+  display: flex;
 
-    min-height:
-    100vh;
+  justify-content: center;
 
+  align-items: center;
 
-    display:
-    flex;
-
-
-    justify-content:
-    center;
-
-
-    align-items:
-    center;
-
-
-    padding:
-    20px;
-
-
+  padding: 20px;
 }
-
-
-
-
 
 .error-card {
+  width: 450px;
 
+  text-align: center;
 
-    width:
-    450px;
+  background: var(--surface);
 
+  border: 1px solid var(--border);
 
-    text-align:
-    center;
+  border-radius: 12px;
 
-
-    background:
-    var(--surface);
-
-
-    border:
-    1px solid var(--border);
-
-
-    border-radius:
-    12px;
-
-
-    padding:
-    45px;
-
-
+  padding: 45px;
 }
-
-
-
-
 
 .error-icon {
+  width: 70px;
 
+  height: 70px;
 
-    width:
-    70px;
+  margin: auto;
 
+  display: flex;
 
-    height:
-    70px;
+  align-items: center;
 
+  justify-content: center;
 
-    margin:
-    auto;
+  border-radius: 14px;
 
+  background: #eef2ff;
 
-    display:
-    flex;
+  color: var(--primary);
 
-
-    align-items:
-    center;
-
-
-    justify-content:
-    center;
-
-
-    border-radius:
-    14px;
-
-
-    background:
-    #EEF2FF;
-
-
-    color:
-    var(--primary);
-
-
-    font-size:
-    35px;
-
-
+  font-size: 35px;
 }
-
-
-
-
 
 .error-card h1 {
+  margin-top: 25px;
 
+  font-size: 72px;
 
-    margin-top:
-    25px;
+  font-weight: 800;
 
-
-    font-size:
-    72px;
-
-
-    font-weight:
-    800;
-
-
-    color:
-    var(--header);
-
-
+  color: var(--header);
 }
-
-
-
-
 
 .error-card h2 {
+  color: var(--text);
 
+  font-size: 24px;
 
-    color:
-    var(--text);
-
-
-    font-size:
-    24px;
-
-
-    font-weight:
-    600;
-
-
+  font-weight: 600;
 }
-
-
-
-
 
 .error-card p {
+  color: var(--secondary-text);
 
-
-    color:
-    var(--secondary-text);
-
-
-    margin:
-    20px 0 30px;
-
-
+  margin: 20px 0 30px;
 }
-
-
-
-
 
 .error-actions {
+  display: flex;
 
+  justify-content: center;
 
-    display:
-    flex;
-
-
-    justify-content:
-    center;
-
-
-    gap:
-    12px;
-
-
+  gap: 12px;
 }
-
-
-
-
 
 .primary-button {
+  background: var(--primary);
 
+  color: white;
 
-    background:
-    var(--primary);
-
-
-    color:
-    white;
-
-
-    border:
-    none;
-
-
+  border: none;
 }
-
-
-
-
 
 .primary-button:hover {
+  background: var(--primary-hover);
 
-
-    background:
-    var(--primary-hover);
-
-
-    color:
-    white;
-
-
+  color: white;
 }
-
-
-
-
 
 .secondary-button {
+  background: white;
 
+  border: 1px solid #cbd5e1;
 
-    background:
-    white;
-
-
-    border:
-    1px solid #CBD5E1;
-
-
-    color:
-    #334155;
-
-
+  color: #334155;
 }
-
-
-
-
 
 .secondary-button:hover {
-
-
-    background:
-    #F1F5F9;
-
-
+  background: #f1f5f9;
 }
 
+@media (max-width: 500px) {
+  .error-card {
+    width: 100%;
 
+    padding: 30px;
+  }
 
-
-
-@media(max-width:500px){
-
-
-    .error-card{
-
-        width:
-        100%;
-
-        padding:
-        30px;
-
-    }
-
-
-    .error-actions{
-
-        flex-direction:
-        column;
-
-    }
-
-
+  .error-actions {
+    flex-direction: column;
+  }
 }
